@@ -62,10 +62,9 @@ namespace veic_web.ViewComponents
             return navMenuDtos;
         }
 
-        public IViewComponentResult Invoke(string displayName)
+        public IViewComponentResult Invoke(string labelName)
         {
-            ViewBag.displayName = displayName;
-            return View(GetBreadcrumb(displayName, 4136));
+            return View(GetBreadcrumb(labelName, 4136));
         }
     }
 }

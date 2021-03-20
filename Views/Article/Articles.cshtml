@@ -1,4 +1,16 @@
-﻿
+﻿@{
+    var displayName = "";
+    var link = Context.Request.Path.Value;
+    if (link.Contains("news"))
+        displayName = "公司新闻";
+    else
+        displayName = "公司公告";
+}
+
+@section Breadcrumb {
+    @await Component.InvokeAsync("Breadcrumb", displayName)
+}
+
 @model veic_web.Models.Wraps.PaginatedList<veic_web.Models.Article>
 <ul>
     @foreach (var item in Model)

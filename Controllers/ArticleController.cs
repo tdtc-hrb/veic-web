@@ -19,7 +19,7 @@ namespace veic_web.Controllers
         }
 
         [HttpGet]
-        [Route("Article/View/{articleId}")]
+        [Route("Company/View/{articleId}")]
         public IActionResult View(int? articleId)
         {
             var article = from art in _article.Articles

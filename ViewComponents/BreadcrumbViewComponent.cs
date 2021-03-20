@@ -58,6 +58,15 @@ namespace veic_web.ViewComponents
                 navMenuDtos.Add(navMenuDto);
             }
 
+            if (navMenuDtos.Count == 0)
+            {
+                NavMenuDto navMenuDto = new NavMenuDto();
+
+                navMenuDto.LinkAddr = "Article-#";
+                navMenuDto.Name = "Search Result";
+
+                navMenuDtos.Add(navMenuDto);
+            }
             return navMenuDtos;
         }
 

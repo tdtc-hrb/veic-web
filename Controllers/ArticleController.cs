@@ -40,6 +40,19 @@ namespace veic_web.Controllers
         }
 
         [HttpGet]
+        [Route("Company/Search/{strSearch}")]
+        public async Task<IActionResult> Search(string strSearch)
+        {
+            int? pageNumber = 3;
+            var article = from art in _article.Articles
+                          where ( art.Lang_id.Equals(4136) && art.Body.Contains(strSearch) )
+                          orderby (art.Pubdate)
+                          select art;
+
+            return View("Articles", await PaginatedList<Article>.CreateAsync(article.AsNoTracking(), pageNumber ?? 1, 12));
+        }
+
+        [HttpGet]
         [Route("Company/{strNewType}")]
         public async Task<IActionResult> Articles(int? pageNumber, string strNewType)
         {

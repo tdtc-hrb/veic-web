@@ -1,4 +1,8 @@
-﻿@ViewData["productName"]
+﻿@section Header {
+    @await Component.InvokeAsync("NavigationMenu")
+}
+
+@ViewData["productName"]
 @*
     https://v4.bootcss.com/docs/components/navs/#tabs
 *@

@@ -1,12 +1,13 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@{
+    string prefixLink = Context.Request.Scheme + "://" + Context.Request.Host + "/";
+}
+
 @model IEnumerable<veic_web.Models.Wraps.NavMenuDto>
 <ol class="breadcrumb">
     @foreach (var menu in Model)
     {
-        <li class="breadcrumb-item"><a href=@menu.ParentLink>@menu.ParentName</a></li>
-        <li class="breadcrumb-item"><a href=@menu.LinkAddr.Replace('-', '/')>@menu.Name</a></li>
+        <li class="breadcrumb-item"><a href="@prefixLink@menu.ParentLink">@menu.ParentName</a></li>
+        <li class="breadcrumb-item"><a href="@prefixLink@menu.LinkAddr.Replace('-', '/')">@menu.Name</a></li>
     }
     <li class="breadcrumb-item active">
         body

@@ -2,7 +2,7 @@
     ViewData["Title"] = "Navigation Menu";
     int i = 0;
 
-
+    string prefixLink = Context.Request.Scheme + "://" + Context.Request.Host + "/";
 }
 
 @*
@@ -26,7 +26,7 @@
 
     @foreach (var menu2 in Model.Where(parent => parent.Parent_id.Equals(menu1.Id)))
     {
-                <a class="dropdown-item" href=@menu2.LinkAddr.Replace('-', '/')>@menu2.Name</a>
+                <a class="dropdown-item" href="@prefixLink@menu2.LinkAddr.Replace('-', '/')">@menu2.Name</a>
     }
 
     i++;

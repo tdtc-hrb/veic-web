@@ -22,7 +22,6 @@ namespace veic_web.ViewComponents
             int parentId = 0;
             string strMenuName = "";
             string strLink = "";
-            string prefixLink = "https://localhost:44362";
 
             List<NavMenuDto> navMenuDtos = new List<NavMenuDto>();
    
@@ -50,10 +49,10 @@ namespace veic_web.ViewComponents
 
                 navMenuDto.Name = strMenuName;
 
-                navMenuDto.LinkAddr = prefixLink + "/" + strLink;
+                navMenuDto.LinkAddr = strLink;
 
                 navMenuDto.ParentName = item.Name;
-                navMenuDto.ParentLink = prefixLink + "/home/" + item.LinkAddr;
+                navMenuDto.ParentLink = item.LinkAddr;
                 
 
                 navMenuDtos.Add(navMenuDto);

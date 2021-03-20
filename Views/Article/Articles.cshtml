@@ -1,4 +1,8 @@
-﻿@{
+﻿@section Header {
+    @await Component.InvokeAsync("NavigationMenu")
+}
+
+@{
     var displayName = "";
     var link = Context.Request.Path.Value;
     if (link.Contains("news"))

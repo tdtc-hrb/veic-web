@@ -1,2 +1,6 @@
-﻿<h1>@ViewData["title"]</h1>
+﻿@section Header {
+    @await Component.InvokeAsync("NavigationMenu")
+}
+
+<h1>@ViewData["title"]</h1>
 @Html.Raw(ViewData["body"])

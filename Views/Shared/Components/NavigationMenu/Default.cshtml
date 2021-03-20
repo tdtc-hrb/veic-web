@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Navigation Menu";
+    int i = 0;
+
+
+}
+
+@*
+    https://stackoverflow.com/questions/16516298/the-closing-braces-of-my-c-sharp-code-are-not-recognized-in-a-razor-partial-view
+*@
+
+@model IEnumerable<Navigation>
+@foreach (var menu1 in Model)
+{
+    @if (menu1.Parent_id.Equals(0))
+    {
+        @:<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">@menu1.Name</a>
+            i = -1;
+        }
+
+    @if (i < 0)
+    {
+            @:<div class="dropdown-menu">
+    }
+
+    @foreach (var menu2 in Model.Where(parent => parent.Parent_id.Equals(menu1.Id)))
+    {
+                <a class="dropdown-item" href=@menu2.LinkAddr.Replace('-', '/')>@menu2.Name</a>
+    }
+
+    i++;
+
+    @if (i < 1)
+    {
+            @:</div>
+    }
+
+    @if (menu1.Parent_id.Equals(0))
+    {
+        @:</li>
+    }
+
+}

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Header {
+    @await Component.InvokeAsync("NavigationMenu")
+}
+
+<div class="laImg"><img id="largeImg" src="@Url.Content("~/img/THDS_rail.jpg")" alt="Large image" /></div>
+<div class="thumbs">
+    <a href="@Url.Content("~/img/THDS_rail.jpg")" title="THDS"><img src="@Url.Content("~/img/THDS_rail-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/AEI_antenna.jpg")" title="车号自动识别"><img src="@Url.Content("~/img/AEI_antenna-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/TFDS_light.jpg")" title="TFDS"><img src="@Url.Content("~/img/TFDS_light-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/TADS_car.jpg")" title="TADS"><img src="@Url.Content("~/img/TADS_car-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/ATC_car.jpg")" title="列车自动清洗"><img src="@Url.Content("~/img/ATC_car-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/HTK-M101.jpg")" title="HTK-M101"><img src="@Url.Content("~/img/HTK-M101-thumb.jpg")" /></a>
+    <a href="@Url.Content("~/img/HMIS_main.jpg")" title="HMIS"><img src="@Url.Content("~/img/HMIS_main-thumb.jpg")" /></a>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".thumbs a").hover(function () {
+            var largePath = $(this).attr("href");
+            var largeAlt = $(this).attr("title");
+
+            $("#largeImg").attr({ src: largePath, alt: largeAlt });
+
+            return false;
+        });
+
+    });
+</script>

@@ -1,0 +1,43 @@
+﻿
+<p>Knowledge points:</p>
+
+<ol>
+    <li>
+        路由
+        <ul>
+            <li>重命名路由: HomeController.cs - [ActionName("Product-AEI")]</li>
+            <li>获取路由参数: ArticleController.cs -  [Route("Article/View/{articleId}")]</li>
+        </ul>
+    </li>
+    <li>
+        页面
+        <ul>
+            <li>输出原始: Index.cshtml - Html.Raw(ViewData["body"])</li>
+            <li>占位: _Layout.cshtml - RenderSection</li>
+            <li>手动关闭tag: at符+冒号</li>
+        </ul>
+    </li>
+</ol>
+
+<h2>TAP(Task-based Asynchronous Pattern)</h2>
+<a href="https://softwareengineering.stackexchange.com/questions/393264/is-the-c-async-task-construct-equivalent-to-javas-executor-future">c#中的task与java的futrue</a>
+<p>
+    C#'s Task is somewhere halfway between Java's Future and CompletableFuture. The Result property is equivalent to calling get(), ContinueWith() does the things the massive array of continuation functions on CompletableFuture does (add some Task.WhenAny and Task.WhenAll in there). But complete(T) has no equivalent (use a TaskCompletionSource), nor does cancel() (pass explicit CancellationTokens).
+
+    Java's Executor is mostly hidden in C#. There's a global thread pool equivalent to a ForkJoinPool that is automatically used by Task.Run. There's TaskScheduler if you really want to control execution, but you very rarely use it.
+
+    async/await, though, has no equivalent in Java. The key point here is that await someTask is not the same as someFuture.get(). The latter blocks the executing thread until the future is complete.
+
+    The former does something completely different. Conceptually, it implements something like coroutines. If the task is not complete, it suspends execution of the current function, but frees the thread up to continue working on other things. Only once the task is complete does execution continue from the point of the await.
+
+    In practical terms, it's a compiler transformation. The compiler divides an async function into pieces. When you call the function, the first piece executes, until it reaches an await. If the task is done, it simply executes the next piece. Otherwise, it uses ContinueWith to schedule the next piece to run once the task completes.
+
+    This is an important distinction, because it means that if the thing you're awaiting is blocked on network access, you're not eating up a thread of the pool; instead the thread can work on other tasks.
+
+    (The above description is simplified. The compiler doesn't actually split the function, it turns it into a state machine. And it doesn't use ContinueWith, but GetAwaiter().UnsafeOnCompleted.)
+
+    This means you get the efficiency of continuations, but with the convenient programming model of normal functions.
+</p>
+
+<h3><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/async-in-depth">Task and Task<T></a></h3>
+<p>任务是用于实现称之为<a href="https://en.wikipedia.org/wiki/Futures_and_promises">并发 Promise 模型</a>的构造。</p>

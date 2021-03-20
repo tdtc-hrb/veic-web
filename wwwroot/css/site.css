@@ -1,0 +1,147 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.navbar-default .navbar-nav > li > ul > li > a:hover {
+    color: #ffffff;
+    background-color: #0000FF;
+}
+
+h1 a {
+    display: inline-block;
+    /*
+	 * bigtop2.jpg
+	 * gifTop12.gif
+	 * gifTop22.gif
+	 * height: 70px;
+	 * padding: 20px 0 0 940px;
+	 */
+    /*
+	 * gifTop32.gif
+	 * height: 140px
+	 */
+    background: url('../img/gifTop32.gif') no-repeat;
+    height: 140px;
+    padding: 20px 0 0 1140px;
+    color: black;
+}
+
+h1 a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+h2 a {
+    color: black;
+}
+
+h1, h2, h3 {
+    font-family: georgia, serif;
+}
+
+p.pubdate {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+.sidebar h3 {
+    font-size: 1em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+}
+
+.sidebar ul {
+    margin-left: 0;
+    list-style-type: none;
+}
+/* homepage */
+#largeImg {
+    border: solid 1px #ccc;
+    width: 848px;
+    height: 270px;
+    padding: 5px;
+}
+
+.thumbs {
+    left: 170px;
+    top: 496px;
+}
+
+.thumbs img {
+    border: solid 1px #ccc;
+    width: 117px;
+    height: 90px;
+    padding: 4px;
+}
+
+.thumbs img:hover {
+    border-color: #FF9900;
+}

@@ -1,0 +1,13 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@section Breadcrumb {
+    @await Component.InvokeAsync("Breadcrumb", @ViewBag.displayName)
+}
+
+<section>
+    <h4>@ViewData["displayName"]</h4>
+    <p>TEL: @ViewData["tel"]</p>
+    <p>FAX: @ViewData["fax"]</p>
+    <p>E-Mail: @ViewData["email"]</p>
+</section>

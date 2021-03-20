@@ -1,0 +1,62 @@
+﻿@ViewData["productName"]
+@*
+    https://v4.bootcss.com/docs/components/navs/#tabs
+*@
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#overView" role="tab">概述</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#techParam" role="tab">技术参数</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="overView" role="tabpanel">
+        <table class="table table-striped" border="0">
+            <tbody>
+            <td>
+                <img src="../img/@ViewData["imgName"]" /></img>
+            </td>
+            <td>
+                <p>
+                   @ViewData["productDesc"]
+                </p>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="techParam" role="tabpanel">
+        <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th>参数名称</th>
+                    <th>参数数值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>平均无故障时间（MTBF）</td>
+                    <td>@ViewData["mtbf"]</td>
+                </tr>
+                <tr>
+                    <td>额定电压（V）</td>
+                    <td>@ViewData["voltage"]</td>
+                </tr>
+                <tr>
+                    <td>额定输入电流（mA）</td>
+                    <td>@ViewData["electricity"]</td>
+                </tr>
+                <tr>
+                    <td>电气防护等级（IPxx）</td>
+                    <td>@ViewData["ipxx"]</td>
+                </tr>
+                <tr>
+                    <td>工作温度（摄氏度）</td>
+                    <td>@ViewData["temperature"]</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
